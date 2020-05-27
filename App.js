@@ -3,6 +3,7 @@ import {View, StyleSheet} from 'react-native';
 
 import Header from './components/Header';
 import Home from './components/Home';
+import Login from './components/Login';
 
 const App = () => {
   return (

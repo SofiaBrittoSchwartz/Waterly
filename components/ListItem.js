@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Image, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Image,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions,
+} from 'react-native';
 
 const ListItem = ({item}) => {
   return (
@@ -15,15 +22,16 @@ const ListItem = ({item}) => {
 const styles = StyleSheet.create({
   listItem: {
     padding: 10,
+    justifyContent: 'space-around',
+    alignContent: 'space-around',
   },
   listItemView: {
     flexDirection: 'column',
     textAlign: 'center',
   },
   img: {
-    flex: 1,
-    width: 140,
-    height: 185,
+    height: (Dimensions.get('window').height - 240) / 3,
+    width: (Dimensions.get('window').width - 50) / 2,
   },
   text: {
     textAlignVertical: 'center',

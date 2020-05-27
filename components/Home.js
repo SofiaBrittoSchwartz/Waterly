@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, FlatList} from 'react-native';
+import {View, StyleSheet, ScrollView} from 'react-native';
 import {v4 as uuid} from 'uuid';
 
 import ListItem from './ListItem';
@@ -26,18 +26,36 @@ const Home = ({title}) => {
       imgSrc: 'https://randomuser.me/api/portraits/women/5.jpg',
       name: 'name4',
     },
+    {
+      id: uuid(),
+      imgSrc: 'https://randomuser.me/api/portraits/women/10.jpg',
+      name: 'name5',
+    },
+    {
+      id: uuid(),
+      imgSrc: 'https://randomuser.me/api/portraits/women/8.jpg',
+      name: 'name6',
+    },
+    {
+      id: uuid(),
+      imgSrc: 'https://randomuser.me/api/portraits/women/20.jpg',
+      name: 'name7',
+    },
+    {
+      id: uuid(),
+      imgSrc: 'https://randomuser.me/api/portraits/women/1.jpg',
+      name: 'name8',
+    },
   ]);
 
   return (
-    <View style={styles.header}>
-      <FlatList
-        data={items}
-        numColumns={2}
-        style={styles.list}
-        contentContainerStyle={styles.listAlign}
-        renderItem={({item}) => <ListItem item={item} />}
-      />
-    </View>
+    <ScrollView contentContainerStyle={styles.imgGalleryContainer}>
+      {items.map((item, index) => (
+        <View style={styles.itemGallery}>
+          <ListItem item={item} />
+        </View>
+      ))}
+    </ScrollView>
   );
 };
 
@@ -47,9 +65,14 @@ const styles = StyleSheet.create({
     fontSize: 23,
     textAlign: 'center',
   },
-  list: {
+  imgGalleryContainer: {
+    flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
+    justifyContent: 'flex-start',
+  },
+  itemGallery: {
+    alignContent: 'center',
   },
 });
 
